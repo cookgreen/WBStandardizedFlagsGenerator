@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DDS;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
@@ -10,15 +11,18 @@ namespace WBStandardizedBannerGenerator
 {
     public class WBStandardizedBannerImage
     {
-        private Image standardizedBannerImage;
+        private Bitmap standardizedBannerImage;
 
         private const int single_standard_image_width = 132;
         private const int single_standard_image_height = 220;
 
         private List<Bitmap> standardizedSingleBannerImages;
 
-        public WBStandardizedBannerImage(List<Bitmap> unStandardizedbannerImages)
+        private DDSImage ddsImage;
+
+        public WBStandardizedBannerImage(List<Bitmap> unStandardizedbannerImages, DDSImage ddsImage)
         {
+            this.ddsImage = ddsImage;
             standardizedSingleBannerImages = new List<Bitmap>();
             generateStandardizedBannerImages(unStandardizedbannerImages);
         }
@@ -42,7 +46,7 @@ namespace WBStandardizedBannerGenerator
 
         public void Save(string outputFilePath)
         {
-            standardizedBannerImage = Image.FromFile(Environment.CurrentDirectory + "//Template//std_template.png");
+            standardizedBannerImage = new Bitmap(Image.FromFile(Environment.CurrentDirectory + "//Template//std_template.png"));
 
             int col = 0;
             int row = 0;
@@ -89,7 +93,7 @@ namespace WBStandardizedBannerGenerator
                 }
             }
 
-            standardizedBannerImage.Save(outputFilePath);
+            DDSImage.Save(standardizedBannerImage, outputFilePath, ddsImage.Format);
         }
     }
 }

@@ -43,9 +43,9 @@ namespace WBStandardizedBannerGenerator
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(25, 27);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(128, 20);
+            this.label1.Size = new System.Drawing.Size(127, 20);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Banner PNG File:";
+            this.label1.Text = "Banner DDS File:";
             // 
             // txtWBBannerDDS
             // 
@@ -88,9 +88,9 @@ namespace WBStandardizedBannerGenerator
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(25, 73);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(130, 20);
+            this.label2.Size = new System.Drawing.Size(129, 20);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Output PNG File:";
+            this.label2.Text = "Output DDS File:";
             // 
             // btnStart
             // 

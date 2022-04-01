@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DDS;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,7 +21,7 @@ namespace WBStandardizedBannerGenerator
         private void btnBrowseDDS_Click(object sender, EventArgs e)
         {
             OpenFileDialog dialog = new OpenFileDialog();
-            dialog.Filter = "WB/WFaS Banner DDS File|*.png";
+            dialog.Filter = "WB/WFaS Banner DDS File|*.dds";
             if(dialog.ShowDialog() == DialogResult.OK)
             {
                 txtWBBannerDDS.Text = dialog.FileName;
@@ -30,7 +31,7 @@ namespace WBStandardizedBannerGenerator
         private void btnSaveDDS_Click(object sender, EventArgs e)
         {
             SaveFileDialog dialog = new SaveFileDialog();
-            dialog.Filter = "WB/WFaS Standard Banner DDS File|*.png";
+            dialog.Filter = "WB/WFaS Standard Banner DDS File|*.dds";
             if(dialog.ShowDialog() == DialogResult.OK)
             {
                 txtStandardBannerDDS.Text = dialog.FileName;
@@ -42,7 +43,14 @@ namespace WBStandardizedBannerGenerator
             if(!string.IsNullOrEmpty(txtWBBannerDDS.Text) &&
                !string.IsNullOrEmpty(txtStandardBannerDDS.Text))
             {
-                WBBannerImage bannerImage = new WBBannerImage(txtWBBannerDDS.Text);
+                DDSImage ddsImage = DDSImage.Load(txtWBBannerDDS.Text);
+                if (ddsImage.Format != DDSImage.CompressionMode.DXT1)
+                {
+                    MessageBox.Show("Only support DX1 format!");
+                    return;
+                }
+
+                WBBannerImage bannerImage = new WBBannerImage(ddsImage);
                 bannerImage.ConvertToStandardBanner(txtStandardBannerDDS.Text);
                 MessageBox.Show("Finished!");
             }
