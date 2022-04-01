@@ -50,7 +50,6 @@ namespace WBStandardizedBannerGenerator
                     }
 
                     index++;
-                    //newImage.Save("C:\\Users\\every\\Desktop\\" + index + ".png");
 
                     bannerBitmaps.Add(newImage);
                 }
