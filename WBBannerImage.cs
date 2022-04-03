@@ -35,7 +35,10 @@ namespace WBStandardizedBannerGenerator
         private void splitImageIntoSingleBanner()
         {
             int index = 0;
-            for (int i = 0; i < 3; i++)
+
+            Rectangle drawRect = new Rectangle(0, 0, single_banner_width, single_banner_height);
+
+            for (int i = 0; i < 3; i++) //Warband banner_*.dds has 21 banners in one dds image
             {
                 for (int j = 0; j < 7; j++)
                 {
@@ -44,9 +47,7 @@ namespace WBStandardizedBannerGenerator
                     Bitmap newImage = new Bitmap(single_banner_width, single_banner_height, image.PixelFormat);
                     using (var g = Graphics.FromImage(newImage))
                     {
-                        g.DrawImage(image, 
-                            new Rectangle(0, 0, single_banner_width, single_banner_height), 
-                            rect, GraphicsUnit.Pixel);
+                        g.DrawImage(image, drawRect, rect, GraphicsUnit.Pixel);
                     }
 
                     index++;
@@ -59,7 +60,7 @@ namespace WBStandardizedBannerGenerator
         public void ConvertToStandardBanner(string outputFilePath)
         {
             WBStandardizedBannerImage standardizedBannerImage = new WBStandardizedBannerImage(bannerBitmaps, ddsImage);
-            standardizedBannerImage.Save(outputFilePath);
+            standardizedBannerImage.SaveToDDS(outputFilePath);
         }
     }
 }

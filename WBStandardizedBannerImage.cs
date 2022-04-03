@@ -24,10 +24,10 @@ namespace WBStandardizedBannerGenerator
         {
             this.ddsImage = ddsImage;
             standardizedSingleBannerImages = new List<Bitmap>();
-            generateStandardizedBannerImages(unStandardizedbannerImages);
+            rescaleStandardizedBannerImages(unStandardizedbannerImages);
         }
 
-        private void generateStandardizedBannerImages(List<Bitmap> unStandardizedbannerImages)
+        private void rescaleStandardizedBannerImages(List<Bitmap> unStandardizedbannerImages)
         {
             for (int i = 0; i < unStandardizedbannerImages.Count; i++)
             {
@@ -44,9 +44,9 @@ namespace WBStandardizedBannerGenerator
             }
         }
 
-        public void Save(string outputFilePath)
+        private Bitmap generateStandardizedBitmap()
         {
-            standardizedBannerImage = new Bitmap(Image.FromFile(Environment.CurrentDirectory + "//Template//std_template.png"));
+            Bitmap standardizedBannerImage = new Bitmap(Image.FromFile(Environment.CurrentDirectory + "//Template//std_template.png"));
 
             int col = 0;
             int row = 0;
@@ -54,11 +54,15 @@ namespace WBStandardizedBannerGenerator
             int y = 0;
             using (var g = Graphics.FromImage(standardizedBannerImage))
             {
-                for (int i = 0; i < standardizedSingleBannerImages.Count; i++)
+                Rectangle rect = new Rectangle(x, y,
+                    single_standard_image_width,
+                    single_standard_image_height);
+
+                for (int i = 0; i < standardizedSingleBannerImages.Count; i++) //Standard Banner std_banner_*.dds also has 21 banners but each banner's size is different
                 {
                     if (i == 0)
                     {
-                        g.DrawImage(standardizedSingleBannerImages[i], new Rectangle(x, y, single_standard_image_width, single_standard_image_height));
+                        g.DrawImage(standardizedSingleBannerImages[i], rect);
                     }
                     else
                     {
@@ -86,14 +90,28 @@ namespace WBStandardizedBannerGenerator
                             y = row * (single_standard_image_height + 2);
                         }
 
-                        g.DrawImage(standardizedSingleBannerImages[i], new Rectangle(x, y, single_standard_image_width, single_standard_image_height));
+                        rect.X = x;
+                        rect.Y = y;
+
+                        g.DrawImage(standardizedSingleBannerImages[i], rect);
                     }
 
                     col++;
                 }
             }
 
+            return standardizedBannerImage;
+        }
+
+        public void SaveToDDS(string outputFilePath)
+        {
+            standardizedBannerImage = generateStandardizedBitmap();
             DDSImage.Save(standardizedBannerImage, outputFilePath, ddsImage.Format);
+        }
+
+        public void Save(string outputFilePath)
+        {
+            standardizedBannerImage.Save(outputFilePath);
         }
     }
 }
