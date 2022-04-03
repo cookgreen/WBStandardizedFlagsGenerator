@@ -111,6 +111,7 @@ namespace WBStandardizedBannerGenerator
 
         public void Save(string outputFilePath)
         {
+            standardizedBannerImage = generateStandardizedBitmap();
             standardizedBannerImage.Save(outputFilePath);
         }
     }
