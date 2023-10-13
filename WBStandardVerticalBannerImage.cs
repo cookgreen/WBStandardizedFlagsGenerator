@@ -83,7 +83,7 @@ namespace WBBannerConverter
 
 		protected override Bitmap generateVerticalBannerImage()
 		{
-			string bannerTemplateFile = Environment.CurrentDirectory + "//Template//wb_banners_template.png";
+			string bannerTemplateFile = Environment.CurrentDirectory + "//Template//std_vertical_banners_template.png";
 			Bitmap wbBannerImage = new Bitmap(Image.FromFile(bannerTemplateFile));
 
 			int col = 0;

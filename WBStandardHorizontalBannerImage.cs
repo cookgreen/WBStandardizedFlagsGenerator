@@ -143,7 +143,7 @@ namespace WBBannerConverter
 
 		private Bitmap generateStandardizedBitmap()
 		{
-			Bitmap standardizedBannerImage = new Bitmap(Image.FromFile(Environment.CurrentDirectory + "//Template//std_template.png"));
+			Bitmap standardizedBannerImage = new Bitmap(Image.FromFile(Environment.CurrentDirectory + "//Template//std_horizontal_flags_template.png"));
 
 			int col = 0;
 			int row = 0;

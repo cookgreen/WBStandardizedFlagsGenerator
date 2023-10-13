@@ -1,7 +1,7 @@
 ﻿
 namespace WBBannerConverter
 {
-    partial class frmMain
+    partial class frmBannerConverter
     {
         /// <summary>
         ///  Required designer variable.
@@ -30,7 +30,7 @@ namespace WBBannerConverter
         private void InitializeComponent()
         {
 			this.components = new System.ComponentModel.Container();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBannerConverter));
 			this.label1 = new System.Windows.Forms.Label();
 			this.txtBannerInput = new System.Windows.Forms.TextBox();
 			this.btnBrowseDDS = new System.Windows.Forms.Button();

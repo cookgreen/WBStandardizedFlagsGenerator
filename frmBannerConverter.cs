@@ -17,11 +17,11 @@ namespace WBBannerConverter
         StdToWB
     }
 
-    public partial class frmMain : Form
+    public partial class frmBannerConverter : Form
     {
         private WBBannerConverterState state;
 
-        public frmMain()
+        public frmBannerConverter()
         {
             InitializeComponent();
             state = WBBannerConverterState.WBtoStd;
