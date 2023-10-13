@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WBStandardizedBannerGenerator
+namespace WBBannerConverter
 {
 	/// <summary>
 	/// banners_a.dds, banners_d.dds, banners_e.dds, banners_f.dds and banners_g.dds are same pattern
@@ -20,12 +20,12 @@ namespace WBStandardizedBannerGenerator
 		private int BANNER_MOD_B_Y_STRIDE = 4;
 		private int[] BANNER_MODE_C_STRIDE_ARR = new int[] { 3, 4, };
 
-		private Bitmap image;
-        private Bitmap verticalBannerImage;
-		private List<Bitmap> veriticalBannerImages;
+		protected Bitmap image;
+		protected Bitmap verticalBannerImage;
+		protected List<Bitmap> veriticalBannerImages;
 
-		private const int SINGLE_VERTICAL_BANNER_WIDTH = 140;
-		private const int SINGLE_VERTICAL_BANNER_HEIGHT = 341;
+		protected const int SINGLE_VERTICAL_BANNER_WIDTH = 140;
+		protected const int SINGLE_VERTICAL_BANNER_HEIGHT = 341;
 
 		private const int SINGLE_VERTICAL_BANNER_B_WIDTH = 135;
 		private const int SINGLE_VERTICAL_BANNER_B_HEIGHT = 348;
@@ -52,7 +52,7 @@ namespace WBStandardizedBannerGenerator
             splitImageIntoSingleBanner();
         }
 
-        private void splitImageIntoSingleBanner()
+        protected virtual void splitImageIntoSingleBanner()
         {
             int index = 0;
 
@@ -113,7 +113,7 @@ namespace WBStandardizedBannerGenerator
 			}
 		}
 
-		private Bitmap generateVerticalBannerImage()
+		protected virtual Bitmap generateVerticalBannerImage()
         {
             string bannerTemplateFile = Environment.CurrentDirectory + "//Template//wb_banners_template.png";
             Bitmap wbBannerImage = new Bitmap(Image.FromFile(bannerTemplateFile));

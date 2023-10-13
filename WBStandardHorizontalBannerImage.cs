@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WBStandardizedBannerGenerator
+namespace WBBannerConverter
 {
     public class WBStandardHorizontalBannerImage
 	{
@@ -42,6 +42,13 @@ namespace WBStandardizedBannerGenerator
 			WBVerticalBannerImage wbVerticalBanner = new WBVerticalBannerImage(standardizedSingleBannerImages, ddsImage);
 			wbVerticalBanner.BannerMode = BannerMode;
             wbVerticalBanner.Save(outputPath);
+		}
+
+		public void ConvertToStandardVerticalBanner(string outputPath)
+		{
+			WBStandardVerticalBannerImage wbVerticalBanner = new WBStandardVerticalBannerImage(standardizedSingleBannerImages, ddsImage);
+			wbVerticalBanner.BannerMode = BannerMode;
+			wbVerticalBanner.Save(outputPath);
 		}
 
 		private void splitImageIntoSingleBanner()

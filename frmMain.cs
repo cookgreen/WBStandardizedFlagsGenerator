@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace WBStandardizedBannerGenerator
+namespace WBBannerConverter
 {
     public enum WBBannerConverterState
     {
@@ -84,13 +84,28 @@ namespace WBStandardizedBannerGenerator
                 switch(state)
                 {
                     case WBBannerConverterState.WBtoStd:
-						WBVerticalBannerImage verticalBannerImage = new WBVerticalBannerImage(txtBannerInput.Text);
-						verticalBannerImage.ConvertToStandardHoritonzalBanner(txtBannerOutput.Text);
+                        if (chkStandardized.Checked)
+                        {
+                            WBVerticalBannerImage verticalBannerImage = new WBVerticalBannerImage(txtBannerInput.Text);
+                            verticalBannerImage.ConvertToStandardHoritonzalBanner(txtBannerOutput.Text);
+                        }
+                        else
+						{
+							WBStandardVerticalBannerImage verticalBannerImage = new WBStandardVerticalBannerImage(txtBannerInput.Text);
+							verticalBannerImage.ConvertToStandardHoritonzalBanner(txtBannerOutput.Text);
+						}
 						break;
 					case WBBannerConverterState.StdToWB:
 						WBStandardHorizontalBannerImage standardHorizontalBannerImage = new WBStandardHorizontalBannerImage(txtBannerInput.Text);
-                        standardHorizontalBannerImage.BannerMode = cmbBannerMode.SelectedIndex;
-						standardHorizontalBannerImage.ConvertToVerticalBanner(txtBannerOutput.Text);
+						standardHorizontalBannerImage.BannerMode = cmbBannerMode.SelectedIndex;
+						if (chkStandardized.Checked)
+                        {
+                            standardHorizontalBannerImage.ConvertToStandardVerticalBanner(txtBannerOutput.Text);
+                        }
+                        else
+						{
+							standardHorizontalBannerImage.ConvertToVerticalBanner(txtBannerOutput.Text);
+						}
 						break;
 				}
 
@@ -105,17 +120,27 @@ namespace WBStandardizedBannerGenerator
                 state = WBBannerConverterState.StdToWB;
 				Text = "WB Banner Converter - Mode: [Horizontal to Vertical]";
 				btnChangeMode.ImageIndex = 0;
-                lbBannerMode.Visible = true;
-                cmbBannerMode.Visible = true;
 			}
 			else if (state == WBBannerConverterState.StdToWB)
 			{
 				state = WBBannerConverterState.WBtoStd;
 				Text = "WB Banner Converter - Mode: [Vertical to Horizontal]";
 				btnChangeMode.ImageIndex = 1;
-				lbBannerMode.Visible = false;
-				cmbBannerMode.Visible = false;
 			}
+		}
+
+		private void chkStandardized_CheckedChanged(object sender, EventArgs e)
+		{
+            if(chkStandardized.Checked)
+            {
+                lbBannerMode.Enabled = false;
+                cmbBannerMode.Enabled = false;
+            }
+            else
+            {
+                lbBannerMode.Enabled = true;
+                cmbBannerMode.Enabled = true;
+            }
 		}
 	}
 }

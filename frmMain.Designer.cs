@@ -1,5 +1,5 @@
 ﻿
-namespace WBStandardizedBannerGenerator
+namespace WBBannerConverter
 {
     partial class frmMain
     {
@@ -44,6 +44,7 @@ namespace WBStandardizedBannerGenerator
 			this.pictureBox2 = new System.Windows.Forms.PictureBox();
 			this.cmbBannerMode = new System.Windows.Forms.ComboBox();
 			this.lbBannerMode = new System.Windows.Forms.Label();
+			this.chkStandardized = new System.Windows.Forms.CheckBox();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
 			this.SuspendLayout();
@@ -87,16 +88,16 @@ namespace WBStandardizedBannerGenerator
 			// 
 			// txtBannerOutput
 			// 
-			this.txtBannerOutput.Location = new System.Drawing.Point(174, 219);
+			this.txtBannerOutput.Location = new System.Drawing.Point(176, 219);
 			this.txtBannerOutput.Name = "txtBannerOutput";
 			this.txtBannerOutput.ReadOnly = true;
-			this.txtBannerOutput.Size = new System.Drawing.Size(465, 27);
+			this.txtBannerOutput.Size = new System.Drawing.Size(463, 27);
 			this.txtBannerOutput.TabIndex = 4;
 			// 
 			// label2
 			// 
 			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(27, 226);
+			this.label2.Location = new System.Drawing.Point(27, 222);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(143, 20);
 			this.label2.TabIndex = 3;
@@ -104,7 +105,7 @@ namespace WBStandardizedBannerGenerator
 			// 
 			// btnStart
 			// 
-			this.btnStart.Location = new System.Drawing.Point(582, 267);
+			this.btnStart.Location = new System.Drawing.Point(582, 276);
 			this.btnStart.Name = "btnStart";
 			this.btnStart.Size = new System.Drawing.Size(138, 68);
 			this.btnStart.TabIndex = 6;
@@ -154,6 +155,7 @@ namespace WBStandardizedBannerGenerator
 			// cmbBannerMode
 			// 
 			this.cmbBannerMode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.cmbBannerMode.Enabled = false;
 			this.cmbBannerMode.FormattingEnabled = true;
 			this.cmbBannerMode.Items.AddRange(new object[] {
             "banners_a",
@@ -163,7 +165,7 @@ namespace WBStandardizedBannerGenerator
             "banners_e",
             "banners_f",
             "banners_g"});
-			this.cmbBannerMode.Location = new System.Drawing.Point(174, 280);
+			this.cmbBannerMode.Location = new System.Drawing.Point(303, 276);
 			this.cmbBannerMode.Name = "cmbBannerMode";
 			this.cmbBannerMode.Size = new System.Drawing.Size(151, 28);
 			this.cmbBannerMode.TabIndex = 10;
@@ -171,17 +173,32 @@ namespace WBStandardizedBannerGenerator
 			// lbBannerMode
 			// 
 			this.lbBannerMode.AutoSize = true;
-			this.lbBannerMode.Location = new System.Drawing.Point(27, 283);
+			this.lbBannerMode.Enabled = false;
+			this.lbBannerMode.Location = new System.Drawing.Point(186, 279);
 			this.lbBannerMode.Name = "lbBannerMode";
 			this.lbBannerMode.Size = new System.Drawing.Size(111, 20);
 			this.lbBannerMode.TabIndex = 11;
 			this.lbBannerMode.Text = "Banner Mode:";
 			// 
+			// chkStandardized
+			// 
+			this.chkStandardized.AutoSize = true;
+			this.chkStandardized.Checked = true;
+			this.chkStandardized.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.chkStandardized.Location = new System.Drawing.Point(31, 278);
+			this.chkStandardized.Name = "chkStandardized";
+			this.chkStandardized.Size = new System.Drawing.Size(149, 24);
+			this.chkStandardized.TabIndex = 12;
+			this.chkStandardized.Text = "Is Standardized?";
+			this.chkStandardized.UseVisualStyleBackColor = true;
+			this.chkStandardized.CheckedChanged += new System.EventHandler(this.chkStandardized_CheckedChanged);
+			// 
 			// frmMain
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(732, 347);
+			this.ClientSize = new System.Drawing.Size(732, 359);
+			this.Controls.Add(this.chkStandardized);
 			this.Controls.Add(this.lbBannerMode);
 			this.Controls.Add(this.cmbBannerMode);
 			this.Controls.Add(this.pictureBox2);
@@ -223,6 +240,7 @@ namespace WBStandardizedBannerGenerator
 		private System.Windows.Forms.ImageList buttonImageList;
 		private System.Windows.Forms.ComboBox cmbBannerMode;
 		private System.Windows.Forms.Label lbBannerMode;
+		private System.Windows.Forms.CheckBox chkStandardized;
 	}
 }
 
