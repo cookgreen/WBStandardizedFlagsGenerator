@@ -11,49 +11,111 @@ using System.Windows.Forms;
 
 namespace WBStandardizedBannerGenerator
 {
+    public enum WBBannerConverterState
+    {
+        WBtoStd,
+        StdToWB
+    }
+
     public partial class frmMain : Form
     {
+        private WBBannerConverterState state;
+
         public frmMain()
         {
             InitializeComponent();
-        }
+            state = WBBannerConverterState.WBtoStd;
+            Text = "WB Banner Converter - Mode: [Vertical to Horizontal]";
+            cmbBannerMode.SelectedIndex = 0;
+		}
 
         private void btnBrowseDDS_Click(object sender, EventArgs e)
         {
             OpenFileDialog dialog = new OpenFileDialog();
-            dialog.Filter = "WB/WFaS Banner DDS File|*.dds";
+            string filter = string.Empty;
+            switch(state)
+            {
+                case WBBannerConverterState.WBtoStd:
+					filter = "WB/WFaS Banner Image File|*.png";
+					break;
+                case WBBannerConverterState.StdToWB:
+					filter = "WB/WFaS Standard Banner Image File|*.png";
+					break;
+            }
+            dialog.Filter = filter;
             if(dialog.ShowDialog() == DialogResult.OK)
             {
-                txtWBBannerDDS.Text = dialog.FileName;
+                txtBannerInput.Text = dialog.FileName;
             }
         }
 
         private void btnSaveDDS_Click(object sender, EventArgs e)
         {
             SaveFileDialog dialog = new SaveFileDialog();
-            dialog.Filter = "WB/WFaS Standard Banner DDS File|*.dds";
+			string filter = string.Empty;
+			switch (state)
+			{
+				case WBBannerConverterState.StdToWB:
+					filter = "WB/WFaS Banner Image File|*.png";
+					break;
+				case WBBannerConverterState.WBtoStd:
+					filter = "WB/WFaS Standard Banner Image File|*.png";
+					break;
+			}
+			dialog.Filter = filter;
             if(dialog.ShowDialog() == DialogResult.OK)
             {
-                txtStandardBannerDDS.Text = dialog.FileName;
+                txtBannerOutput.Text = dialog.FileName;
             }
         }
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            if(!string.IsNullOrEmpty(txtWBBannerDDS.Text) &&
-               !string.IsNullOrEmpty(txtStandardBannerDDS.Text))
+            if(!string.IsNullOrEmpty(txtBannerInput.Text) &&
+               !string.IsNullOrEmpty(txtBannerOutput.Text))
             {
-                DDSImage ddsImage = DDSImage.Load(txtWBBannerDDS.Text);
-                if (ddsImage.Format != DDSImage.CompressionMode.DXT1)
+                //DDSImage ddsImage = DDSImage.Load(txtBannerInputDDS.Text);
+                //if (ddsImage.Format != DDSImage.CompressionMode.DXT1)
+                //{
+                //    MessageBox.Show("Only support DX1 format!");
+                //    return;
+                //}
+                
+                switch(state)
                 {
-                    MessageBox.Show("Only support DX1 format!");
-                    return;
-                }
+                    case WBBannerConverterState.WBtoStd:
+						WBVerticalBannerImage verticalBannerImage = new WBVerticalBannerImage(txtBannerInput.Text);
+						verticalBannerImage.ConvertToStandardHoritonzalBanner(txtBannerOutput.Text);
+						break;
+					case WBBannerConverterState.StdToWB:
+						WBStandardHorizontalBannerImage standardHorizontalBannerImage = new WBStandardHorizontalBannerImage(txtBannerInput.Text);
+                        standardHorizontalBannerImage.BannerMode = cmbBannerMode.SelectedIndex;
+						standardHorizontalBannerImage.ConvertToVerticalBanner(txtBannerOutput.Text);
+						break;
+				}
 
-                WBBannerImage bannerImage = new WBBannerImage(ddsImage);
-                bannerImage.ConvertToStandardBanner(txtStandardBannerDDS.Text);
-                MessageBox.Show("Finished!");
-            }
+				MessageBox.Show("Finished!", "Notice", MessageBoxButtons.OK, MessageBoxIcon.Information);
+			}
         }
-    }
+
+		private void btnChangeMode_Click(object sender, EventArgs e)
+		{
+            if(state == WBBannerConverterState.WBtoStd)
+            {
+                state = WBBannerConverterState.StdToWB;
+				Text = "WB Banner Converter - Mode: [Horizontal to Vertical]";
+				btnChangeMode.ImageIndex = 0;
+                lbBannerMode.Visible = true;
+                cmbBannerMode.Visible = true;
+			}
+			else if (state == WBBannerConverterState.StdToWB)
+			{
+				state = WBBannerConverterState.WBtoStd;
+				Text = "WB Banner Converter - Mode: [Vertical to Horizontal]";
+				btnChangeMode.ImageIndex = 1;
+				lbBannerMode.Visible = false;
+				cmbBannerMode.Visible = false;
+			}
+		}
+	}
 }

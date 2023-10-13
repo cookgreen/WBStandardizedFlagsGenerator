@@ -29,111 +29,200 @@ namespace WBStandardizedBannerGenerator
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtWBBannerDDS = new System.Windows.Forms.TextBox();
-            this.btnBrowseDDS = new System.Windows.Forms.Button();
-            this.btnSaveDDS = new System.Windows.Forms.Button();
-            this.txtStandardBannerDDS = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btnStart = new System.Windows.Forms.Button();
-            this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(25, 27);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(127, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Banner DDS File:";
-            // 
-            // txtWBBannerDDS
-            // 
-            this.txtWBBannerDDS.Location = new System.Drawing.Point(158, 24);
-            this.txtWBBannerDDS.Name = "txtWBBannerDDS";
-            this.txtWBBannerDDS.ReadOnly = true;
-            this.txtWBBannerDDS.Size = new System.Drawing.Size(477, 27);
-            this.txtWBBannerDDS.TabIndex = 1;
-            // 
-            // btnBrowseDDS
-            // 
-            this.btnBrowseDDS.Location = new System.Drawing.Point(641, 22);
-            this.btnBrowseDDS.Name = "btnBrowseDDS";
-            this.btnBrowseDDS.Size = new System.Drawing.Size(67, 29);
-            this.btnBrowseDDS.TabIndex = 2;
-            this.btnBrowseDDS.Text = "...";
-            this.btnBrowseDDS.UseVisualStyleBackColor = true;
-            this.btnBrowseDDS.Click += new System.EventHandler(this.btnBrowseDDS_Click);
-            // 
-            // btnSaveDDS
-            // 
-            this.btnSaveDDS.Location = new System.Drawing.Point(641, 68);
-            this.btnSaveDDS.Name = "btnSaveDDS";
-            this.btnSaveDDS.Size = new System.Drawing.Size(67, 29);
-            this.btnSaveDDS.TabIndex = 5;
-            this.btnSaveDDS.Text = "...";
-            this.btnSaveDDS.UseVisualStyleBackColor = true;
-            this.btnSaveDDS.Click += new System.EventHandler(this.btnSaveDDS_Click);
-            // 
-            // txtStandardBannerDDS
-            // 
-            this.txtStandardBannerDDS.Location = new System.Drawing.Point(158, 70);
-            this.txtStandardBannerDDS.Name = "txtStandardBannerDDS";
-            this.txtStandardBannerDDS.ReadOnly = true;
-            this.txtStandardBannerDDS.Size = new System.Drawing.Size(477, 27);
-            this.txtStandardBannerDDS.TabIndex = 4;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(25, 73);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(129, 20);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Output DDS File:";
-            // 
-            // btnStart
-            // 
-            this.btnStart.Location = new System.Drawing.Point(570, 103);
-            this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(138, 68);
-            this.btnStart.TabIndex = 6;
-            this.btnStart.Text = "Start";
-            this.btnStart.UseVisualStyleBackColor = true;
-            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
-            // 
-            // frmMain
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(732, 183);
-            this.Controls.Add(this.btnStart);
-            this.Controls.Add(this.btnSaveDDS);
-            this.Controls.Add(this.txtStandardBannerDDS);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.btnBrowseDDS);
-            this.Controls.Add(this.txtWBBannerDDS);
-            this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.Name = "frmMain";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "WB Standardized Banner Generator";
-            this.ResumeLayout(false);
-            this.PerformLayout();
+			this.components = new System.ComponentModel.Container();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
+			this.label1 = new System.Windows.Forms.Label();
+			this.txtBannerInput = new System.Windows.Forms.TextBox();
+			this.btnBrowseDDS = new System.Windows.Forms.Button();
+			this.btnSaveDDS = new System.Windows.Forms.Button();
+			this.txtBannerOutput = new System.Windows.Forms.TextBox();
+			this.label2 = new System.Windows.Forms.Label();
+			this.btnStart = new System.Windows.Forms.Button();
+			this.btnChangeMode = new System.Windows.Forms.Button();
+			this.buttonImageList = new System.Windows.Forms.ImageList(this.components);
+			this.pictureBox1 = new System.Windows.Forms.PictureBox();
+			this.pictureBox2 = new System.Windows.Forms.PictureBox();
+			this.cmbBannerMode = new System.Windows.Forms.ComboBox();
+			this.lbBannerMode = new System.Windows.Forms.Label();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+			this.SuspendLayout();
+			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Location = new System.Drawing.Point(27, 170);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(141, 20);
+			this.label1.TabIndex = 0;
+			this.label1.Text = "Banner Image File:";
+			// 
+			// txtBannerInput
+			// 
+			this.txtBannerInput.Location = new System.Drawing.Point(174, 167);
+			this.txtBannerInput.Name = "txtBannerInput";
+			this.txtBannerInput.ReadOnly = true;
+			this.txtBannerInput.Size = new System.Drawing.Size(463, 27);
+			this.txtBannerInput.TabIndex = 1;
+			// 
+			// btnBrowseDDS
+			// 
+			this.btnBrowseDDS.Location = new System.Drawing.Point(653, 160);
+			this.btnBrowseDDS.Name = "btnBrowseDDS";
+			this.btnBrowseDDS.Size = new System.Drawing.Size(67, 41);
+			this.btnBrowseDDS.TabIndex = 2;
+			this.btnBrowseDDS.Text = "...";
+			this.btnBrowseDDS.UseVisualStyleBackColor = true;
+			this.btnBrowseDDS.Click += new System.EventHandler(this.btnBrowseDDS_Click);
+			// 
+			// btnSaveDDS
+			// 
+			this.btnSaveDDS.Location = new System.Drawing.Point(653, 213);
+			this.btnSaveDDS.Name = "btnSaveDDS";
+			this.btnSaveDDS.Size = new System.Drawing.Size(67, 39);
+			this.btnSaveDDS.TabIndex = 5;
+			this.btnSaveDDS.Text = "...";
+			this.btnSaveDDS.UseVisualStyleBackColor = true;
+			this.btnSaveDDS.Click += new System.EventHandler(this.btnSaveDDS_Click);
+			// 
+			// txtBannerOutput
+			// 
+			this.txtBannerOutput.Location = new System.Drawing.Point(174, 219);
+			this.txtBannerOutput.Name = "txtBannerOutput";
+			this.txtBannerOutput.ReadOnly = true;
+			this.txtBannerOutput.Size = new System.Drawing.Size(465, 27);
+			this.txtBannerOutput.TabIndex = 4;
+			// 
+			// label2
+			// 
+			this.label2.AutoSize = true;
+			this.label2.Location = new System.Drawing.Point(27, 226);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(143, 20);
+			this.label2.TabIndex = 3;
+			this.label2.Text = "Output Image File:";
+			// 
+			// btnStart
+			// 
+			this.btnStart.Location = new System.Drawing.Point(582, 267);
+			this.btnStart.Name = "btnStart";
+			this.btnStart.Size = new System.Drawing.Size(138, 68);
+			this.btnStart.TabIndex = 6;
+			this.btnStart.Text = "Start";
+			this.btnStart.UseVisualStyleBackColor = true;
+			this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
+			// 
+			// btnChangeMode
+			// 
+			this.btnChangeMode.ImageIndex = 1;
+			this.btnChangeMode.ImageList = this.buttonImageList;
+			this.btnChangeMode.Location = new System.Drawing.Point(314, 12);
+			this.btnChangeMode.Name = "btnChangeMode";
+			this.btnChangeMode.Size = new System.Drawing.Size(130, 130);
+			this.btnChangeMode.TabIndex = 7;
+			this.btnChangeMode.UseVisualStyleBackColor = true;
+			this.btnChangeMode.Click += new System.EventHandler(this.btnChangeMode_Click);
+			// 
+			// buttonImageList
+			// 
+			this.buttonImageList.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+			this.buttonImageList.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("buttonImageList.ImageStream")));
+			this.buttonImageList.TransparentColor = System.Drawing.Color.Transparent;
+			this.buttonImageList.Images.SetKeyName(0, "arrow-left.png");
+			this.buttonImageList.Images.SetKeyName(1, "arrow-right.png");
+			// 
+			// pictureBox1
+			// 
+			this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+			this.pictureBox1.Location = new System.Drawing.Point(84, 12);
+			this.pictureBox1.Name = "pictureBox1";
+			this.pictureBox1.Size = new System.Drawing.Size(130, 130);
+			this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.pictureBox1.TabIndex = 8;
+			this.pictureBox1.TabStop = false;
+			// 
+			// pictureBox2
+			// 
+			this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+			this.pictureBox2.Location = new System.Drawing.Point(546, 12);
+			this.pictureBox2.Name = "pictureBox2";
+			this.pictureBox2.Size = new System.Drawing.Size(130, 130);
+			this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.pictureBox2.TabIndex = 9;
+			this.pictureBox2.TabStop = false;
+			// 
+			// cmbBannerMode
+			// 
+			this.cmbBannerMode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.cmbBannerMode.FormattingEnabled = true;
+			this.cmbBannerMode.Items.AddRange(new object[] {
+            "banners_a",
+            "banners_b",
+            "banners_c",
+            "banners_d",
+            "banners_e",
+            "banners_f",
+            "banners_g"});
+			this.cmbBannerMode.Location = new System.Drawing.Point(174, 280);
+			this.cmbBannerMode.Name = "cmbBannerMode";
+			this.cmbBannerMode.Size = new System.Drawing.Size(151, 28);
+			this.cmbBannerMode.TabIndex = 10;
+			// 
+			// lbBannerMode
+			// 
+			this.lbBannerMode.AutoSize = true;
+			this.lbBannerMode.Location = new System.Drawing.Point(27, 283);
+			this.lbBannerMode.Name = "lbBannerMode";
+			this.lbBannerMode.Size = new System.Drawing.Size(111, 20);
+			this.lbBannerMode.TabIndex = 11;
+			this.lbBannerMode.Text = "Banner Mode:";
+			// 
+			// frmMain
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.ClientSize = new System.Drawing.Size(732, 347);
+			this.Controls.Add(this.lbBannerMode);
+			this.Controls.Add(this.cmbBannerMode);
+			this.Controls.Add(this.pictureBox2);
+			this.Controls.Add(this.pictureBox1);
+			this.Controls.Add(this.btnChangeMode);
+			this.Controls.Add(this.btnStart);
+			this.Controls.Add(this.btnSaveDDS);
+			this.Controls.Add(this.txtBannerOutput);
+			this.Controls.Add(this.label2);
+			this.Controls.Add(this.btnBrowseDDS);
+			this.Controls.Add(this.txtBannerInput);
+			this.Controls.Add(this.label1);
+			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+			this.MaximizeBox = false;
+			this.MinimizeBox = false;
+			this.Name = "frmMain";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+			this.Text = "WB Banner Converter";
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+			this.ResumeLayout(false);
+			this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtWBBannerDDS;
+        private System.Windows.Forms.TextBox txtBannerInput;
         private System.Windows.Forms.Button btnBrowseDDS;
         private System.Windows.Forms.Button btnSaveDDS;
-        private System.Windows.Forms.TextBox txtStandardBannerDDS;
+        private System.Windows.Forms.TextBox txtBannerOutput;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnStart;
-    }
+		private System.Windows.Forms.Button btnChangeMode;
+		private System.Windows.Forms.PictureBox pictureBox1;
+		private System.Windows.Forms.PictureBox pictureBox2;
+		private System.Windows.Forms.ImageList buttonImageList;
+		private System.Windows.Forms.ComboBox cmbBannerMode;
+		private System.Windows.Forms.Label lbBannerMode;
+	}
 }
 
