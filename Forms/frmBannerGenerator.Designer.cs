@@ -28,15 +28,16 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmBannerGenerator));
 			this.listBannerImages = new System.Windows.Forms.ListBox();
 			this.btnAdd = new System.Windows.Forms.Button();
 			this.btnDelete = new System.Windows.Forms.Button();
 			this.btnGenerate = new System.Windows.Forms.Button();
 			this.groupBox1 = new System.Windows.Forms.GroupBox();
+			this.checkBox1 = new System.Windows.Forms.CheckBox();
 			this.rbGenerateStandardVerticalBanner = new System.Windows.Forms.RadioButton();
 			this.rbGenerateWBDefaultBanner = new System.Windows.Forms.RadioButton();
 			this.rbGenerateStandardHorizontalBanner = new System.Windows.Forms.RadioButton();
-			this.checkBox1 = new System.Windows.Forms.CheckBox();
 			this.groupBox1.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -46,13 +47,13 @@
 			this.listBannerImages.ItemHeight = 20;
 			this.listBannerImages.Location = new System.Drawing.Point(12, 12);
 			this.listBannerImages.Name = "listBannerImages";
-			this.listBannerImages.Size = new System.Drawing.Size(462, 424);
+			this.listBannerImages.Size = new System.Drawing.Size(565, 424);
 			this.listBannerImages.TabIndex = 0;
 			this.listBannerImages.SelectedIndexChanged += new System.EventHandler(this.listBannerImages_SelectedIndexChanged);
 			// 
 			// btnAdd
 			// 
-			this.btnAdd.Location = new System.Drawing.Point(480, 12);
+			this.btnAdd.Location = new System.Drawing.Point(593, 12);
 			this.btnAdd.Name = "btnAdd";
 			this.btnAdd.Size = new System.Drawing.Size(187, 68);
 			this.btnAdd.TabIndex = 1;
@@ -63,7 +64,7 @@
 			// btnDelete
 			// 
 			this.btnDelete.Enabled = false;
-			this.btnDelete.Location = new System.Drawing.Point(480, 100);
+			this.btnDelete.Location = new System.Drawing.Point(593, 100);
 			this.btnDelete.Name = "btnDelete";
 			this.btnDelete.Size = new System.Drawing.Size(187, 68);
 			this.btnDelete.TabIndex = 2;
@@ -73,7 +74,7 @@
 			// 
 			// btnGenerate
 			// 
-			this.btnGenerate.Location = new System.Drawing.Point(480, 481);
+			this.btnGenerate.Location = new System.Drawing.Point(593, 481);
 			this.btnGenerate.Name = "btnGenerate";
 			this.btnGenerate.Size = new System.Drawing.Size(187, 89);
 			this.btnGenerate.TabIndex = 4;
@@ -89,9 +90,21 @@
 			this.groupBox1.Controls.Add(this.rbGenerateStandardHorizontalBanner);
 			this.groupBox1.Location = new System.Drawing.Point(14, 445);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(460, 125);
+			this.groupBox1.Size = new System.Drawing.Size(563, 125);
 			this.groupBox1.TabIndex = 5;
 			this.groupBox1.TabStop = false;
+			// 
+			// checkBox1
+			// 
+			this.checkBox1.AutoSize = true;
+			this.checkBox1.Checked = true;
+			this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
+			this.checkBox1.Location = new System.Drawing.Point(267, 24);
+			this.checkBox1.Name = "checkBox1";
+			this.checkBox1.Size = new System.Drawing.Size(137, 24);
+			this.checkBox1.TabIndex = 3;
+			this.checkBox1.Text = "Flip 90 Degree";
+			this.checkBox1.UseVisualStyleBackColor = true;
 			// 
 			// rbGenerateStandardVerticalBanner
 			// 
@@ -125,29 +138,18 @@
 			this.rbGenerateStandardHorizontalBanner.Text = "Standard Horizontal Banner";
 			this.rbGenerateStandardHorizontalBanner.UseVisualStyleBackColor = true;
 			// 
-			// checkBox1
-			// 
-			this.checkBox1.AutoSize = true;
-			this.checkBox1.Checked = true;
-			this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.checkBox1.Location = new System.Drawing.Point(267, 24);
-			this.checkBox1.Name = "checkBox1";
-			this.checkBox1.Size = new System.Drawing.Size(137, 24);
-			this.checkBox1.TabIndex = 3;
-			this.checkBox1.Text = "Flip 90 Degree";
-			this.checkBox1.UseVisualStyleBackColor = true;
-			// 
 			// frmBannerGenerator
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(679, 595);
+			this.ClientSize = new System.Drawing.Size(792, 595);
 			this.Controls.Add(this.groupBox1);
 			this.Controls.Add(this.btnGenerate);
 			this.Controls.Add(this.btnDelete);
 			this.Controls.Add(this.btnAdd);
 			this.Controls.Add(this.listBannerImages);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "frmBannerGenerator";

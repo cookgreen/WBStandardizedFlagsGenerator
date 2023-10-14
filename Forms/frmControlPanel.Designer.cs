@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmControlPanel));
 			this.btnStartConverter = new System.Windows.Forms.Button();
 			this.btnStartGenerator = new System.Windows.Forms.Button();
 			this.SuspendLayout();
@@ -60,6 +61,7 @@
 			this.Controls.Add(this.btnStartGenerator);
 			this.Controls.Add(this.btnStartConverter);
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.MaximizeBox = false;
 			this.MinimizeBox = false;
 			this.Name = "frmControlPanel";

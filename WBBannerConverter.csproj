@@ -5,6 +5,7 @@
     <TargetFramework>net6.0-windows</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
     <ApplicationIcon>logo.ico</ApplicationIcon>
+    <StartupObject>WBBannerConverter.Program</StartupObject>
   </PropertyGroup>
 
   <ItemGroup>
@@ -31,7 +32,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Template\std_horizontal_flags_template.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Template\std_template.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Template\std_vertical_banners_template.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Template\wb_banners_template.png">

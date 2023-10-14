@@ -71,8 +71,12 @@ namespace WBBannerConverter
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            if(!string.IsNullOrEmpty(txtBannerInput.Text) &&
-               !string.IsNullOrEmpty(txtBannerOutput.Text))
+            if(string.IsNullOrEmpty(txtBannerInput.Text) || string.IsNullOrEmpty(txtBannerOutput.Text))
+            {
+                MessageBox.Show("You should select a valid image file!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else 
             {
                 //DDSImage ddsImage = DDSImage.Load(txtBannerInputDDS.Text);
                 //if (ddsImage.Format != DDSImage.CompressionMode.DXT1)
